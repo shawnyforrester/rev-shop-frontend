@@ -6,10 +6,10 @@ body {
   
   .form-wrapper {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 50px auto;
     background-color: #fff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 30px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
   
