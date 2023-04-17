@@ -1,6 +1,7 @@
 <div id="app">
   <nav class="navbar navbar-expand navbar-dark bg-dark">
     <a href="#" class="navbar-brand"></a>
+    <div class="logo">Men's Clothing Store</div>
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
         <a href="/home" class="nav-link" routerLink="home">Home </a>
@@ -9,7 +10,7 @@
         <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
       </li>
       <li class="nav-item" *ngIf="showRetailerBoard">
-        <a href="/mod" class="nav-link" routerLink="mod">Retailer Board</a>
+        <a href="/retailer" class="nav-link" routerLink="mod">Retailer Board</a>
       </li>
       <li class="nav-item">
         <a href="/buyer" class="nav-link" *ngIf="isLoggedIn" routerLink="user">Buyer</a>
@@ -18,7 +19,7 @@
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
       <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+        <a href="/registration" class="nav-link" routerLink="registration">Sign Up</a>
       </li>
       <li class="nav-item">
         <a href="/login" class="nav-link" routerLink="login">Login</a>
@@ -40,4 +41,3 @@
   </div>
 </div>
 <router-outlet></router-outlet>
-<app-nav-bar></app-nav-bar>

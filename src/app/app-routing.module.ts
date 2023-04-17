@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'products/item/:id', component: ItemPageComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'products', component: ProductsPageComponent },
-  { path: '**', redirectTo: 'home', pathMatch: 'full' },
+  { path: '*', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   {path: 'admin', component: BoardAdminComponent},
   {path: 'buyer', component: BoardBuyerComponent},

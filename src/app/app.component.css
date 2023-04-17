@@ -1,0 +1,8 @@
+.logo {
+    flex: auto;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    justify-content: space-between
+  }
