@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { StorageServiceService } from 'src/app/services/storage-service.service';
-
+import { Buyer } from 'src/app/Models/Buyer';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +9,17 @@ import { StorageServiceService } from 'src/app/services/storage-service.service'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  form: any = {
-    username: null,
-    password: null
+  buyer: Buyer = {
+    
+    id: 0,
+    name: "",
+    username: "",
+    email: "",
+    password: "",
+    number: "",
+    address: "",
+    role: ""
+
   };
   isLoggedIn = false;
   isLoginFailed = false;
@@ -28,9 +36,9 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { username, password } = this.form;
+    
 
-    this.authService.login(username, password).subscribe({
+    this.authService.login(this.buyer).subscribe({
       next: data => {
         this.storageService.saveUser(data);
 

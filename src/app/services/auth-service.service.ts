@@ -15,13 +15,11 @@ export class AuthServiceService {
  
   constructor(private http: HttpClient) { }
   /**Handles the login() POST request */
-  login(username: string, password: string): Observable<any> {
+  login(buyer: Buyer): Observable<any> {
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
     header.append("Access-Control-Allow-Origin", "*");
-    return this.http.post(AUTH_API + 'login', {
-      username, password
-    }, {headers: header}
+    return this.http.post(AUTH_API + 'login', buyer, {headers: header}
     );
   }
   /**Handles the register() POST request */
@@ -38,8 +36,7 @@ export class AuthServiceService {
   logout(): Observable<any> {
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
-    header.append("Access-Control-Allow-Origin", "*");
-    
+    header.append("Access-Control-Allow-Origin", "*");    
     return this.http.post(AUTH_API + 'logout', {}, {headers: header});
   }
 }
