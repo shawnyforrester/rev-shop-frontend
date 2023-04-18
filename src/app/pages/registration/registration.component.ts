@@ -11,6 +11,7 @@ import{Buyer} from '../../Models/Buyer';
 export class RegistrationComponent implements OnInit {
 
   buyer: Buyer = {
+    id: 0,
     name: "",
     username: "",
     email: "",
