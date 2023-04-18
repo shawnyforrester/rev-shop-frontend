@@ -17,7 +17,7 @@
       <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <div class="form-group">
           <label for="username">Username</label>
-          <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required minlength="3"
+          <input type="text" class="form-control" name="username" [(ngModel)]="buyer.username" required minlength="3"
             maxlength="20" #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.errors }" />
 
           <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
@@ -33,8 +33,8 @@
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email #email="ngModel"
-            [ngClass]="{ 'is-invalid': f.submitted && email.errors }" />
+          <input type="email" class="form-control" name="email" [(ngModel)]="buyer.email" required email
+            #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.errors }" />
           <div class="invalid-feedback" *ngIf="email.errors && f.submitted">
             <div *ngIf="email.errors['required']">Email is required</div>
             <div *ngIf="email.errors['email']">
@@ -44,8 +44,8 @@
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
-            #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.errors }" />
+          <input type="password" class="form-control" name="password" [(ngModel)]="buyer.password" required
+            minlength="6" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.errors }" />
           <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
             <div *ngIf="password.errors['required']">Password is required</div>
             <div *ngIf="password.errors['minlength']">
@@ -56,7 +56,7 @@
         <div class="form-group">
           <div class="form-group">
             <label for="number">Contact Number</label>
-            <input type="number" class="form-control" name="number" [(ngModel)]="form.number" required minlength="8"
+            <input type="number" class="form-control" name="number" [(ngModel)]="buyer.number" required minlength="10"
               #number="ngModel" [ngClass]="{ 'is-invalid': f.submitted && number.errors }" />
             <div class="invalid-feedback" *ngIf="number.errors && f.submitted">
               <div *ngIf="number.errors['required']">Number is required</div>
@@ -65,29 +65,26 @@
               </div>
             </div>
           </div>
+          
           <div class="form-group">
             <div class="form-group">
               <label for="address">Address</label>
-              <input type="address" class="form-control" name="address" [(ngModel)]="form.address" #address="ngModel"
-                [ngClass]="{ 'is-invalid': f.submitted && address.errors }" />
-              <div class="invalid-feedback" *ngIf="address.errors && f.submitted">
-                <div *ngIf="address.errors['required']">Number is required</div>
-                <div *ngIf="address.errors['minlength']">
-                  Your contact number is needed her for authentication
-                </div>
-              </div>
+              <input type="address" class="form-control" name="address" [(ngModel)]="buyer.address"
+                #address="ngModel" />
             </div>
+
             <div class="form-group">
               <label for="role">User Type:</label><br>
               <label>Customer</label><br>
-              <input type="radio" name="user-type" value="customer" checked [(ngModel)]="form.role" #role="ngModel"
-                [ngClass]="{ 'is-invalid': f.submitted && role.errors }" />
+              <input type="radio" name="user-type" value="customer" checked [(ngModel)]="buyer.role" #role="ngModel"
+                [ngClass]="{'is-invalid': f.submitted && role.errors }" />
 
               <label>Retailer</label><br>
-              <input type="radio" name="user-type" value="customer" checked [(ngModel)]="form.role" #role="ngModel"
+              <input type="radio" name="user-type" value="customer" checked [(ngModel)]="buyer.role" #role="ngModel"
                 [ngClass]="{ 'is-invalid': f.submitted && role.errors }" />
+
               <label>Admin</label>
-              <input type="radio" name="user-type" value="admin" hecked [(ngModel)]="form.role" #role="ngModel"
+              <input type="radio" name="user-type" value="admin" hecked [(ngModel)]="buyer.role" #role="ngModel"
                 [ngClass]="{ 'is-invalid': f.submitted && role.errors }" />
             </div>
             <div class="form-group">

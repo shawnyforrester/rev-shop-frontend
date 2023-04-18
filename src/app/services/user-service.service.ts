@@ -25,14 +25,14 @@ export class UserServiceService {
     header.append("accept", "text/json");
     header.append("Access-Control-Allow-Origin", "*");
 
-    return this.http.get(API_URL + 'user', { responseType: 'text', headers:header });
+    return this.http.get(API_URL + 'buyer', { responseType: 'text', headers:header });
   }
   
   getRetailerBoard(): Observable<any> {
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
     header.append("Access-Control-Allow-Origin", "*");
-    return this.http.get(API_URL + 'mod', { responseType: 'text', headers:header });
+    return this.http.get(API_URL + 'retailer', { responseType: 'text', headers:header });
   }
 
   getAdminBoard(): Observable<any> {

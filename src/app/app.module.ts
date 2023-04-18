@@ -18,6 +18,7 @@ import { BoardBuyerComponent } from './components/board-buyer/board-buyer.compon
 import { httpInterceptorProviders } from 'src/helpers/http.interceptor';
 import { UserHomeComponent } from './components/user-home/user-home.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

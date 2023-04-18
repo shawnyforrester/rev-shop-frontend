@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
+import{Buyer} from '../../Models/Buyer';
+
 
 @Component({
   selector: 'app-registration',
@@ -8,14 +10,14 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
 })
 export class RegistrationComponent implements OnInit {
 
-  form: any = {
-    name: null,
-    username: null,
-    email: null,
-    password: null,
-    number: null,
-    address: null,
-    role: null
+  buyer: Buyer = {
+    name: "",
+    username: "",
+    email: "",
+    password: "",
+    number: "",
+    address: "",
+    role: ""
   };
 
   isSuccessful = false;
@@ -29,10 +31,8 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { name, username, email, password, number, address, role } = this.form;
-
-    this.authService.register(name, username, email, password,
-      number, address, role).subscribe({
+   
+    this.authService.register(this.buyer).subscribe({
         next: data => {
           console.log(data);
           this.isSuccessful = true;
