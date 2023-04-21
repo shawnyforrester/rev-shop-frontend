@@ -9,6 +9,7 @@ import { BoardAdminComponent } from './components/board-admin/board-admin.compon
 import { BoardRetailerComponent } from './components/board-retailer/board-retailer.component';
 import{BoardBuyerComponent} from './components/board-buyer/board-buyer.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -20,7 +21,7 @@ const routes: Routes = [
   {path: 'admin', component: BoardAdminComponent},
   {path: 'buyer', component: BoardBuyerComponent},
   {path: 'retailer', component: BoardRetailerComponent},
-  {path: 'profile', component: UserHomeComponent}
+  {path: 'profile', component: ProfileComponent},
 ];
 
 @NgModule({

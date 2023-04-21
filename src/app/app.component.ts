@@ -25,10 +25,10 @@ export class AppComponent implements OnInit {
 
     if (this.isLoggedIn) {
       const user = this.storageService.getUser();
-      this.roles = user.roles;
+      this.roles.push(user.role);
 
-      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showRetailerBoard = this.roles.includes('ROLE_RETAILER');
+      this.showAdminBoard = this.roles.includes('admin');
+      this.showRetailerBoard = this.roles.includes('retailer');
 
       this.username = user.username;
     }
@@ -40,7 +40,8 @@ export class AppComponent implements OnInit {
       next: res => {
         console.log(res);
         this.storageService.clean();
-        window.location.reload();
+        localStorage.clear();
+        
       },
       error: err => {
         console.log(err);
