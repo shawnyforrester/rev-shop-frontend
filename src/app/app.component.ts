@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
   private _cart: Cart = { items: [] };
   itemsQuantity = 0;
 
+  
+
   /**Input data received from from a parent component*/
   @Input()
   get cart(): Cart {
@@ -37,6 +39,7 @@ export class AppComponent implements OnInit {
   isLoggedIn = false;
   showAdminBoard = false;
   showRetailerBoard = false;
+  showBuyerBoard = false;
   username?: string;
 
   constructor(private storageService: StorageServiceService, 
@@ -47,11 +50,11 @@ export class AppComponent implements OnInit {
     this.isLoggedIn = this.storageService.isLoggedIn();
 
     if (this.isLoggedIn) {
-      const user = this.storageService.getUser();
-      this.roles.push(user.role);
-
+      const user = this.storageService.getUser();        
+        this.roles.push(user.role);
       this.showAdminBoard = this.roles.includes('admin');
       this.showRetailerBoard = this.roles.includes('retailer');
+      this.showBuyerBoard = this.roles.includes('buyer');
 
       this.username = user.username;
     }
@@ -64,6 +67,8 @@ export class AppComponent implements OnInit {
         console.log(res);
         this.storageService.clean();
         localStorage.clear();
+        this.reloadPage();
+        
         
       },
       error: err => {
@@ -82,5 +87,9 @@ export class AppComponent implements OnInit {
   /**clears the cart */
   onClearCart(): void {
     this.cartService.clearCart();
+  }
+
+  reloadPage(): void {
+    this.router.navigate(['/home']);
   }
 }

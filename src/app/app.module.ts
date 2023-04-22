@@ -4,7 +4,6 @@ import { FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -32,11 +31,16 @@ import { ProductHeaderComponent } from './components/product-header/product-head
 import { FilterComponent } from './components/filter/filter.component';
 import { ProductBoxComponent } from './components/product-box/product-box.component';
 import { CartComponent } from './components/cart/cart.component';
+import { AppComponent } from './app.component';
+import { CartServicesService } from './services/cart-services.service';
+import { StoreService } from './services/store.service';
+
 
 
 
 @NgModule({
   declarations: [
+
     AppComponent,
     HomeComponent,
     RegistrationComponent,
@@ -51,6 +55,7 @@ import { CartComponent } from './components/cart/cart.component';
     FilterComponent,
     ProductBoxComponent,
     CartComponent,
+    
     
   ],
   imports: [
@@ -73,7 +78,8 @@ import { CartComponent } from './components/cart/cart.component';
     MatSnackBarModule,
     
   ],
-  providers: [httpInterceptorProviders],
-  bootstrap: [AppComponent]
+  providers: [httpInterceptorProviders, CartServicesService, StoreService],
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 <div class="container" *ngIf="currentUser; else loggedOut">
-    <header class="jumbotron">
+    <header class="jumbotron" >
       <h3>
-        <strong>{{ currentUser.username }}</strong> Profile
+        Profile:<strong>{{ currentUser.username | uppercase }}</strong> 
       </h3>
     </header>
     <p>
@@ -9,11 +9,11 @@
       {{ currentUser.email }}
     </p>
     <strong>Roles:</strong>
-    <ul>
-      <li *ngFor="let role of currentUser.roles">
+    
+      
         {{ currentUser.role }}
-      </li>
-    </ul>
+      
+    
   </div>
   
   <ng-template #loggedOut>

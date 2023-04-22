@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
-import{Buyer} from '../../Models/Buyer';
+import{ User} from '../../Models/user';
 
 
 @Component({
@@ -10,7 +10,7 @@ import{Buyer} from '../../Models/Buyer';
 })
 export class RegistrationComponent implements OnInit {
 
-  buyer: Buyer = {
+  user: User = {
 
     id: 0,
     name: "",
@@ -34,7 +34,7 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit(): void {
    
-    this.authService.register(this.buyer).subscribe({
+    this.authService.register(this.user).subscribe({
         next: data => {
           console.log(data);
           this.isSuccessful = true;

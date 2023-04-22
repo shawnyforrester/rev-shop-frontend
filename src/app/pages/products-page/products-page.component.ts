@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Product } from 'src/app/Models/product.model';
 import { CartServicesService } from 'src/app/services/cart-services.service';
@@ -13,6 +13,7 @@ const ROWS_HEIGHT: { [id: number]: number } = { 1: 400, 3: 335, 4: 350 };
 })
 export class ProductsPageComponent {
 
+  
   
 
   cols = 3;

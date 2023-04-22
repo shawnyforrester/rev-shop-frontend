@@ -10,12 +10,17 @@
       </li>-->
       <li class="nav-item" *ngIf="showAdminBoard">
         <a href="/admin" class="nav-link" routerLink="admin">Admin</a>
+        
       </li>
       <li class="nav-item" *ngIf="showRetailerBoard">
-        <a href="/retailer" class="nav-link" routerLink="mod">Retailer</a>
+        <a href="/retailer" class="nav-link" routerLink="retailer">Retailer</a>
+        
       </li>
-      <li class="nav-item">
-        <a href="/buyer" class="nav-link" *ngIf="isLoggedIn" routerLink="user">Customer</a>
+      <li class="nav-item" *ngIf = "showBuyerBoard">
+        <a href="/profile" class="nav-link" routerLink="buyer">Customer</a>                
+      </li>
+      <li class = "nav-item" *ngIf = "isLoggedIn">
+        <button  class="nav-link" (click)="logout()">Logout</button>
       </li>
     </ul>
 
@@ -28,8 +33,11 @@
         
       </li>
     </ul>
+
+  
+
     <button mat-icon-button [matMenuTriggerFor] ="menu">
-      <mat-icon [matBadge]="1"
+      <mat-icon [matBadge]="itemsQuantity" 
     matBadgeColor="warn" class="cart">shopping_cart</mat-icon>
     </button>
 
@@ -70,17 +78,7 @@
           </button>
         </div>
       </div>
-    </mat-menu>
-    
-
-    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-      <li class="nav-item">
-        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
-      </li>
-      <li class="nav-item">
-        <a href class="nav-link" (click)="logout()" font-size: 24>LogOut</a>
-      </li>
-    </ul>
+    </mat-menu>  
   </nav>
 
   <div class="container">
