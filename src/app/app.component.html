@@ -1,19 +1,21 @@
 <div id="app">
+  
   <nav class="navbar navbar-expand navbar-dark bg-dark">
     <a href="#" class="navbar-brand"></a>
-    <div class="logo">Men's Clothing Store</div>
+    
+    <a routerLink="home" class="logo">Men's Clothing Store</a>
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
-      <li class="nav-item">
+      <!--<li class="nav-item">
         <a href="/home" class="nav-link" routerLink="home">Home </a>
-      </li>
+      </li>-->
       <li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+        <a href="/admin" class="nav-link" routerLink="admin">Admin</a>
       </li>
       <li class="nav-item" *ngIf="showRetailerBoard">
-        <a href="/retailer" class="nav-link" routerLink="mod">Retailer Board</a>
+        <a href="/retailer" class="nav-link" routerLink="mod">Retailer</a>
       </li>
       <li class="nav-item">
-        <a href="/buyer" class="nav-link" *ngIf="isLoggedIn" routerLink="user">Buyer</a>
+        <a href="/buyer" class="nav-link" *ngIf="isLoggedIn" routerLink="user">Customer</a>
       </li>
     </ul>
 
@@ -23,15 +25,60 @@
       </li>
       <li class="nav-item">
         <a href="/login" class="nav-link" routerLink="login">Login</a>
+        
       </li>
     </ul>
+    <button mat-icon-button [matMenuTriggerFor] ="menu">
+      <mat-icon [matBadge]="1"
+    matBadgeColor="warn" class="cart">shopping_cart</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <div class="p-3 divide-y divide-solid">
+        <div class="pb-3 flex justify-between">
+          <span class="mr-16">{{ cart.items.length }} items</span>
+          <a routerLink="cart">View Cart</a>
+        </div>
+        
+        <div *ngIf="cart.items.length" class="py-3">
+          <div
+            *ngFor="let item of cart.items"
+            class="flex justify-between font-light mb-2"
+          >
+            {{ item.type }} x {{ item.quantity }}
+            <span class="font-bold not-italic">{{ item.price | currency }}</span>
+          </div>
+        </div>
+        <div class="flex justify-between py-3 font-light">
+          Total:
+          <span class="font-bold not-italic">{{
+            getTotal(cart.items) | currency
+          }}</span>
+        </div>
+        <div class="pt-3 flex justify-between">
+          <button
+            (click)="onClearCart()"
+            class="bg-rose-600 text-white rounded-full w-9 h-9"
+          >
+            <mat-icon>remove_shopping_cart</mat-icon>
+          </button>
+          <button
+            routerLink="cart"
+            class="bg-green-600 text-white rounded-full w-9 h-9"
+          >
+            <mat-icon>shopping_cart_checkout</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-menu>
+    
 
     <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
       <li class="nav-item">
         <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
       </li>
       <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">LogOut</a>
+        <a href class="nav-link" (click)="logout()" font-size: 24>LogOut</a>
       </li>
     </ul>
   </nav>
@@ -40,4 +87,4 @@
     <router-outlet></router-outlet>
   </div>
 </div>
-<router-outlet></router-outlet>
+
