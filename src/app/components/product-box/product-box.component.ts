@@ -10,7 +10,7 @@ export class ProductBoxComponent {
 
   @Input() fullWidthMode = false;
   @Input() product: Product | undefined;
-  @Output() addToCart = new EventEmitter();
+  @Output() addToCart = new EventEmitter<Product>();
 
   constructor() {}
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Buyer } from '../Models/Buyer';
+import { User } from '../Models/user';
 
 
 const AUTH_API = 'http://localhost:9000/';
@@ -15,21 +15,21 @@ export class AuthServiceService {
  
   constructor(private http: HttpClient) { }
   /**Handles the login() POST request */
-  login(buyer: Buyer): Observable<any> {
+  login(user: User): Observable<any> {
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
     header.append("Access-Control-Allow-Origin", "*");
-    return this.http.post(AUTH_API + 'login', buyer, {headers: header}
+    return this.http.post(AUTH_API + 'login', user, {headers: header}
     );
   }
   /**Handles the register() POST request */
-  register(buyer: Buyer): Observable<any> {
+  register(user: User): Observable<any> {
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
     header.append("Access-Control-Allow-Origin", "*");
     return this.http.post(
       AUTH_API + 'registration',
-      buyer, {headers: header}     
+      user, {headers: header}     
     );
   }
   /**Handles the logout() POST request */

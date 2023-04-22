@@ -1,5 +1,5 @@
 
-export interface Buyer {
+export interface User {
 
     id: number;
     name: string;
