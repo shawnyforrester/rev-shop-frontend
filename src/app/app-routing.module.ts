@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { ItemPageComponent } from './pages/item-page/item-page.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { ProductsPageComponent } from './pages/products-page/products-page.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -10,10 +9,10 @@ import { BoardRetailerComponent } from './components/board-retailer/board-retail
 import{BoardBuyerComponent} from './components/board-buyer/board-buyer.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'products/item/:id', component: ItemPageComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'products', component: ProductsPageComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -22,6 +21,7 @@ const routes: Routes = [
   {path: 'buyer', component: BoardBuyerComponent},
   {path: 'retailer', component: BoardRetailerComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'cart', component: CartComponent}
 ];
 
 @NgModule({

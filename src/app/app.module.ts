@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
-import { ItemPageComponent } from './pages/item-page/item-page.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProductsPageComponent } from './pages/products-page/products-page.component';
@@ -16,13 +15,30 @@ import { BoardRetailerComponent } from './components/board-retailer/board-retail
 import { BoardBuyerComponent } from './components/board-buyer/board-buyer.component';
 import { httpInterceptorProviders } from 'src/helpers/http.interceptor';
 import { UserHomeComponent } from './components/user-home/user-home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ProductHeaderComponent } from './components/product-header/product-header.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { ProductBoxComponent } from './components/product-box/product-box.component';
+import { CartComponent } from './components/cart/cart.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ItemPageComponent,
     RegistrationComponent,
     LoginComponent,
     ProductsPageComponent,
@@ -31,13 +47,31 @@ import { UserHomeComponent } from './components/user-home/user-home.component';
     BoardRetailerComponent,
     BoardBuyerComponent,
     UserHomeComponent,
+    ProductHeaderComponent,
+    FilterComponent,
+    ProductBoxComponent,
+    CartComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatGridListModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatListModule,
+    MatCardModule,
+    MatTableModule,
+    MatBadgeModule,
+    MatExpansionModule,
+    MatSnackBarModule,
+    
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
