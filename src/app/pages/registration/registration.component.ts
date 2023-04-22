@@ -11,10 +11,6 @@ import{Buyer} from '../../Models/Buyer';
 export class RegistrationComponent implements OnInit {
 
   buyer: Buyer = {
-<<<<<<< HEAD
-=======
-
->>>>>>> main
     id: 0,
     name: "",
     username: "",
