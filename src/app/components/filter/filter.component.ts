@@ -1,5 +1,5 @@
-import {  Component,  EventEmitter,  OnDestroy,
-  OnInit,  Output,} from '@angular/core';
+import {  Component,  EventEmitter,  OnDestroy, OnInit} from '@angular/core';
+import {  Output,} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { StoreService } from 'src/app/services/store.service';
 
