@@ -14,7 +14,7 @@ export class StorageServiceService {
   constructor() { }
 
   clean(): void {
-    window.sessionStorage.clear();
+    window.sessionStorage.removeItem(USER_KEY);
   }
 
   public saveUser(user: any): void {

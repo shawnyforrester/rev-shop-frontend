@@ -16,12 +16,15 @@
         <a href="/retailer" class="nav-link" routerLink="retailer">Retailer</a>
         
       </li>
-      <li class="nav-item" *ngIf = "showBuyerBoard">
-        <a href="/profile" class="nav-link" routerLink="buyer">Customer</a>                
+      <li class = "nav-item" *ngIf = "isLoggedIn">        
+        <button  class="nav-link" routerLink="products">Shop Now</button>
       </li>
-      <li class = "nav-item" *ngIf = "isLoggedIn">
+      <li class="nav-item" *ngIf = "showBuyerBoard && isLoggedIn">
+        <a href="/profile" class="nav-link" routerLink="profile">Customer</a>                
+      </li>
+      <li class = "nav-item" *ngIf = "isLoggedIn">        
         <button  class="nav-link" (click)="logout()">Logout</button>
-      </li>
+      </li>     
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
