@@ -21,7 +21,8 @@ const routes: Routes = [
   {path: 'buyer', component: BoardBuyerComponent},
   {path: 'retailer', component: BoardRetailerComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: 'cart', component: CartComponent}
+  {path: 'cart', component: CartComponent},
+  {path: 'products', component: ProductsPageComponent}
 ];
 
 @NgModule({

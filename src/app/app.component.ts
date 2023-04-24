@@ -31,7 +31,7 @@ export class AppComponent implements OnInit{
     /**The number of items in the cart is set here */
     this.itemsQuantity = cart.items
       .map((item) => item.quantity)
-      .reduce((prev, curent) => prev + curent, 0);
+      .reduce((prev, current) => prev + current, 0);
   }
 
   title = 'rev-shop-frontend';
@@ -59,6 +59,10 @@ export class AppComponent implements OnInit{
       this.username = user.username;
     }
 
+    // Subscribe to cart updates from the cart service
+    this.cartService.cart.subscribe(cart => {
+      this.cart = cart;
+    });
   }
 
   logout(): void {

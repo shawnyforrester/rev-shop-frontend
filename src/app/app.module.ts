@@ -34,6 +34,8 @@ import { CartComponent } from './components/cart/cart.component';
 import { AppComponent } from './app.component';
 import { CartServicesService } from './services/cart-services.service';
 import { StoreService } from './services/store.service';
+import { PaymentComponent } from './components/payment/payment.component';
+import { StripeModule } from "stripe-angular";
 
 
 
@@ -55,6 +57,7 @@ import { StoreService } from './services/store.service';
     FilterComponent,
     ProductBoxComponent,
     CartComponent,
+    PaymentComponent
     
     
   ],
