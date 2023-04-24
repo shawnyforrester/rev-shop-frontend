@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import Stripe from 'stripe';
 import { CartServicesService } from 'src/app/services/cart-services.service';
 
 @Component({
