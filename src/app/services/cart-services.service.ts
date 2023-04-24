@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Cart, CartItem } from '../Models/cart.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,19 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 export class CartServicesService {
 
   cart = new BehaviorSubject<Cart>({ items: [] });
+  totalCost = new BehaviorSubject<number>(0);
+  cartKey = 'cart';
 
-  constructor(private _snackBar: MatSnackBar) {}
+  constructor(private _snackBar: MatSnackBar) {
+    const cartData = localStorage.getItem(this.cartKey);
+    if (cartData) {
+      this.cart.next(JSON.parse(cartData));
+    }
+    this.cart.subscribe(cart => {
+      this.totalCost.next(this.getTotal(cart.items));
+      localStorage.setItem(this.cartKey, JSON.stringify(cart));
+    });
+  }
 
 
   /**This method adds items to the cart */
@@ -89,7 +100,13 @@ export class CartServicesService {
       .reduce((prev, current) => prev + current, 0);
   }
 
+  getItems() {
+    return this.cart.value.items;
+  }
 
+    getTotalCost(): Observable<number> {
+    return this.totalCost.asObservable();
+  }
 
   
 }

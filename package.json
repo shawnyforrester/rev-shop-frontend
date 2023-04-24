@@ -21,7 +21,10 @@
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
     "@stripe/stripe-js": "^1.52.1",
+    "@types/stripe-v3": "^3.1.28",
     "rxjs": "~7.8.0",
+    "stripe": "^12.2.0",
+    "stripe-angular": "^1.9.3",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },
@@ -30,6 +33,7 @@
     "@angular/cli": "~15.2.6",
     "@angular/compiler-cli": "^15.2.0",
     "@types/jasmine": "~4.3.0",
+    "@types/stripe-checkout": "^1.0.4",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
