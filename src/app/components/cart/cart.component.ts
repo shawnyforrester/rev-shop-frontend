@@ -15,7 +15,7 @@ export class CartComponent implements OnInit, OnDestroy{
 
   cart: Cart = { items: [] };
   displayedColumns: string[] = [
-    'product',
+    // 'product',
     'name',
     'price',
     'quantity',
@@ -30,9 +30,17 @@ export class CartComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
     this.cartSubscription = this.cartService.cart.subscribe((_cart: Cart) => {
       this.cart = _cart;
-      this.dataSource = _cart.items;
-    });
-  }
+     this.dataSource = _cart.items.map((item: CartItem) => {
+        const product = this.http.get(item.type); // Assuming that 'type' is the URL of the product's image.
+        return {
+          ...item,
+          name: item.type, // Replace with the actual name of the product.
+          image: item.image // Replace with the actual image of the product.
+        }
+      });
+    }
+  )}
+
 
   getTotal(items: CartItem[]): number {
     return this.cartService.getTotal(items);
@@ -72,5 +80,7 @@ export class CartComponent implements OnInit, OnDestroy{
       this.cartSubscription.unsubscribe();
     }
   }
+
+  
 
 }
