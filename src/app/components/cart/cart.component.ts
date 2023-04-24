@@ -14,6 +14,7 @@ import { loadStripe } from '@stripe/stripe-js';
 export class CartComponent implements OnInit, OnDestroy{
 
   cart: Cart = { items: [] };
+
   displayedColumns: string[] = [
     // 'product',
     'name',
@@ -23,6 +24,7 @@ export class CartComponent implements OnInit, OnDestroy{
     'action',
   ];
   dataSource: CartItem[] = [];
+  
   cartSubscription: Subscription | undefined;
 
   constructor(private cartService: CartServicesService, private http: HttpClient) {}

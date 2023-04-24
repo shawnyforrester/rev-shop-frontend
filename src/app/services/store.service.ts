@@ -15,7 +15,7 @@ export class StoreService {
   constructor(private httpClient: HttpClient) { }
 
   getAllProducts(
-    limit = '12',
+    limit = '36',
     sort = 'desc',
     category?: string
   ): Observable<Array<Product>> {
