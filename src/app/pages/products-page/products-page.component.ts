@@ -68,6 +68,7 @@ export class ProductsPageComponent {
       price: product.price,
       quantity: 1,
       id: product.id,
+      image: product.image
     });
   }
 

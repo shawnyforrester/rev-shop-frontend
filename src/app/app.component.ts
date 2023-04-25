@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import{ Router } from '@angular/router';
 import { StorageServiceService } from './services/storage-service.service';
 import { AuthServiceService } from './services/auth-service.service';
@@ -11,7 +11,7 @@ import { CartServicesService } from './services/cart-services.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit{
 
   /**This is the cart which is inialized as an array of items */
   private _cart: Cart = { items: [] };
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
     /**The number of items in the cart is set here */
     this.itemsQuantity = cart.items
       .map((item) => item.quantity)
-      .reduce((prev, curent) => prev + curent, 0);
+      .reduce((prev, current) => prev + current, 0);
   }
 
   title = 'rev-shop-frontend';
@@ -59,15 +59,21 @@ export class AppComponent implements OnInit {
       this.username = user.username;
     }
 
+    // Subscribe to cart updates from the cart service
+    this.cartService.cart.subscribe(cart => {
+      this.cart = cart;
+    });
   }
 
   logout(): void {
+    this.isLoggedIn = false;
     this.authService.logout().subscribe({
       next: res => {
         console.log(res);
-        this.storageService.clean();
-        localStorage.clear();
+        this.storageService.clean();        
+        localStorage.clear();     
         this.reloadPage();
+        this.router.navigate(['/home']);
         
         
       },
@@ -92,4 +98,6 @@ export class AppComponent implements OnInit {
   reloadPage(): void {
     this.router.navigate(['/home']);
   }
+
+
 }
