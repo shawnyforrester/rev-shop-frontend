@@ -1,10 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../Models/product.model';
+import { Injectable } from '@angular/core';
 
 
-const STORE_BASE_URL = 'https://fakestoreapi.com';
+const STORE_BASE_URL = 'https://localhost:9000';
 
 
 @Injectable({
@@ -15,7 +15,7 @@ export class StoreService {
   constructor(private httpClient: HttpClient) { }
 
   getAllProducts(
-    limit = '12',
+    limit = '36',
     sort = 'desc',
     category?: string
   ): Observable<Array<Product>> {

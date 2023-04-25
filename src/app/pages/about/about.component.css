@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    background-color: lightgrey;
+    padding: 20px;
+  }
+  
+  .image-container {
+    flex: 1;
+  }
+  
+  .about-us-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .text-container {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .about-us-title {
+    font-size: 28px;
+  }
+  
+  .about-us-description {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  

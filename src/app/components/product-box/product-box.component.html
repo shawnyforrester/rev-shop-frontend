@@ -1,23 +1,23 @@
 <mat-card *ngIf="product" [ngClass]="{ 'text-center': !fullWidthMode }">
   <div [ngClass]="{ flex: fullWidthMode }">
     <div class="image-container" [ngClass]="{ 'h-[200px]': !fullWidthMode, 'h-[360px]': fullWidthMode }">
-      <img class="mb-1 mx-auto" [ngClass]="{ 'h-full w-full object-cover': true }" [src]="product.image"
-        style="height: 100%; object-fit: contain;" />
+      <img class="mb-1 mx-auto" [ngClass]="{ 'h-full w-full object-contain': true }" [src]="product.image"
+        style="height: 80%; object-fit: contain;" />
       <div class="absolute bottom-0 right-0 p-2">
         <button (click)="onAddToCart()">
           <mat-icon class="text-gray-500">shopping_cart</mat-icon>
         </button>
       </div>
     </div>
-    <div class="w-full" [ngClass]="{ 'px-8 flex flex-col justify-between': fullWidthMode }">
-      <div>
+    <div class="object-fit: scale-down 4px" [ngClass]="{ 'px-6 flex flex-col justify-between': fullWidthMode }">
+      <div class= "object-fit: scale-down 4px">
         <h5>{{ product.category }}</h5>
-          <p>
+        <p>
           {{ product.title }}
-          </p>
-        <p *ngIf="fullWidthMode">
-          {{ product.description_and_reviews }}
         </p>
+        <!-- <p *ngIf="fullWidthMode">
+          {{ product.description_and_reviews }}
+        </p>-->
       </div>
       <div class="flex justify-between">
         <span class="text-red-400">{{ product.price | currency }}</span>
