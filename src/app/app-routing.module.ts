@@ -10,6 +10,7 @@ import{BoardBuyerComponent} from './components/board-buyer/board-buyer.component
 import { UserHomeComponent } from './components/user-home/user-home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CartComponent } from './components/cart/cart.component';
+import { AboutComponent } from './pages/about/about.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path: 'retailer', component: BoardRetailerComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'cart', component: CartComponent},
-  {path: 'products', component: ProductsPageComponent}
+  {path: 'products', component: ProductsPageComponent},
+  {path: 'about', component: AboutComponent}
 ];
 
 @NgModule({
