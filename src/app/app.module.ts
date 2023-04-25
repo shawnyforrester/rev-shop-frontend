@@ -36,6 +36,8 @@ import { CartServicesService } from './services/cart-services.service';
 import { StoreService } from './services/store.service';
 import { PaymentComponent } from './components/payment/payment.component';
 import { AboutComponent } from './pages/about/about.component';
+import { DeleteComponent } from './components/delete/delete.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 //import { StripeModule } from "stripe-angular";
 
@@ -60,7 +62,9 @@ import { AboutComponent } from './pages/about/about.component';
     ProductBoxComponent,
     CartComponent,
     PaymentComponent,
-    AboutComponent
+    AboutComponent,
+    DeleteComponent,
+    AddProductComponent
     
     
   ],

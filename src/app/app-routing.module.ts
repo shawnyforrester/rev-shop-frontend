@@ -11,6 +11,8 @@ import { UserHomeComponent } from './components/user-home/user-home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AboutComponent } from './pages/about/about.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { DeleteComponent } from './components/delete/delete.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -24,7 +26,10 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'cart', component: CartComponent},
   {path: 'products', component: ProductsPageComponent},
-  {path: 'about', component: AboutComponent}
+  {path: 'about', component: AboutComponent},
+  {path: 'add', component: AddProductComponent},
+  {path: 'delete', component: DeleteComponent}
+
 ];
 
 @NgModule({
