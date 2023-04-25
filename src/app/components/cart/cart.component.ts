@@ -30,12 +30,12 @@ export class CartComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
     this.cartSubscription = this.cartService.cart.subscribe((_cart: Cart) => {
       this.cart = _cart;
-     this.dataSource = _cart.items.map((item: CartItem) => {
-        const product = this.http.get(item.type); // Assuming that 'type' is the URL of the product's image.
+      this.dataSource = _cart.items.map((item: CartItem) => {
+        const product = this.http.get(item.type); 
         return {
           ...item,
-          name: item.type, // Replace with the actual name of the product.
-          image: item.image // Replace with the actual image of the product.
+          name: item.type, 
+          image: item.image 
         }
       });
     }
