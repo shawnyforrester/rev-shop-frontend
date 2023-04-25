@@ -3,8 +3,9 @@
       <mat-panel-title> CATEGORIES </mat-panel-title>
     </mat-expansion-panel-header>
     <mat-selection-list [multiple]="false">
-      <mat-list-option *ngFor="let category of categories" [value]="category">
-        <button (click)="onShowCategory(category)">{{ category }}</button>
+      <!--moving the click event to the mat-list-option resolves weird clicking on category word problem-->
+      <mat-list-option *ngFor="let category of categories" [value]="category" (click)="onShowCategory(category)">
+        <button >{{ category }}</button>
       </mat-list-option>
     </mat-selection-list>
   </mat-expansion-panel>
