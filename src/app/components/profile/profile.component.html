@@ -32,10 +32,11 @@
   </div>
   <br>
 
-  <div *ngIf="retailer">
-    <button (click) = "addProduct()"> Add New Product</button> <br>
-    <button (click) = "deleteProduct()">Delete Product</button>
-  </div>
+<div class="buttons-container" *ngIf="retailer">
+  <button (click)="addProduct()">Add New Product</button>
+  <button (click)="deleteProduct()">Delete Product</button>
+</div>
+
 
 
   <ng-template #loggedOut>
