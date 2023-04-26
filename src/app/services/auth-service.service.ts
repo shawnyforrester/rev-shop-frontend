@@ -28,11 +28,9 @@ export class AuthServiceService {
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
     header.append("Access-Control-Allow-Origin", "*");
-    return this.http.post(
-      AUTH_API + 'registration',
-      user, {headers: header}
-    );
+    return this.http.post(AUTH_API + 'registration',user, {responseType:'text'});
   }
+
   /**Handles the logout() POST request */
   logout(): Observable<any> {
     let header : HttpHeaders = new HttpHeaders();

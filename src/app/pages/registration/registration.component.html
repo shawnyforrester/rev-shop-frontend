@@ -12,8 +12,6 @@
 <div class="col-md-12">
   <div class="card card-container">
     <div class="form-wrapper">
-      <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
-
       <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <div class="form-group">
           <label for="username">Username</label>
