@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../Models/user';
+import { StorageServiceService } from 'src/app/services/storage-service.service';
 
 
 const AUTH_API = 'http://localhost:9000/';
@@ -12,8 +13,8 @@ const AUTH_API = 'http://localhost:9000/';
 })
 export class AuthServiceService {
 
- 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private storageService: StorageServiceService) { }
+
   /**Handles the login() POST request */
   login(user: User): Observable<any> {
     let header : HttpHeaders = new HttpHeaders();
@@ -27,16 +28,21 @@ export class AuthServiceService {
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
     header.append("Access-Control-Allow-Origin", "*");
-    return this.http.post(
-      AUTH_API + 'registration',
-      user, {headers: header}     
-    );
+    return this.http.post(AUTH_API + 'registration',user, {responseType:'text'});
   }
+
   /**Handles the logout() POST request */
   logout(): Observable<any> {
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
-    header.append("Access-Control-Allow-Origin", "*");    
+    header.append("Access-Control-Allow-Origin", "*");
     return this.http.post(AUTH_API + 'logout', {}, {headers: header});
   }
+
+  changePassword(id : number, user:User): Observable<any>{
+     let header : HttpHeaders = new HttpHeaders();
+     header.append("accept", "text/json");
+     header.append("Access-Control-Allow-Origin", "*");
+     return this.http.patch(`${AUTH_API}login/${id}`, user,{headers: header});
+     }
 }
