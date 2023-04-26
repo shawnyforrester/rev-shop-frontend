@@ -1,7 +1,7 @@
 <div class="container" *ngIf="currentUser; else loggedOut">
     <header class="jumbotron" >
       <h3>
-        Profile:<strong>{{ currentUser.username | uppercase }}</strong> 
+        Profile:<strong>{{ currentUser.username | uppercase }}</strong>
       </h3>
     </header>
     <p>
@@ -9,13 +9,30 @@
       {{ currentUser.email }}
     </p>
     <strong>Roles:</strong>
-    
-      
-        {{ currentUser.role }}       
-      
-    
+        {{ currentUser.role }}
+  <br>
+  <strong>Update Password</strong>
+  <form>
+    <div class="form-group">
+      <label>Current Password</label>
+      <input type="password" [(ngModel)]="currentPassword" class="form-control" name="currentPassword" aria-describedby="passHelp" placeholder="Enter Current Password">
+    </div>
+    <div class="form-group">
+      <label>New Password</label>
+      <input type="password" [(ngModel)]="newPassword" class="form-control" name="newPassword" placeholder="Enter New Password">
+    </div>
+    <div class="form-group">
+      <label>Confirm Password</label>
+      <input type="password" [(ngModel)]="confirmPassword" class="form-control" name="confirmPassword" placeholder="Confirm New Password">
+    </div>
+
+    <button (click)="passSubmit()" class="btn btn-dark">Submit</button>
+  </form>
+  <p class="message">{{message}}</p>
   </div>
-  
+
+
+
   <ng-template #loggedOut>
     Please login.
   </ng-template>
