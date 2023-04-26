@@ -9,11 +9,7 @@ import { RegistrationComponent } from './pages/registration/registration.compone
 import { LoginComponent } from './pages/login/login.component';
 import { ProductsPageComponent } from './pages/products-page/products-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { BoardAdminComponent } from './components/board-admin/board-admin.component';
-import { BoardRetailerComponent } from './components/board-retailer/board-retailer.component';
-import { BoardBuyerComponent } from './components/board-buyer/board-buyer.component';
 import { httpInterceptorProviders } from 'src/helpers/http.interceptor';
-import { UserHomeComponent } from './components/user-home/user-home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -52,11 +48,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     RegistrationComponent,
     LoginComponent,
     ProductsPageComponent,
-    ProfileComponent,
-    BoardAdminComponent,
-    BoardRetailerComponent,
-    BoardBuyerComponent,
-    UserHomeComponent,
+    ProfileComponent, 
     ProductHeaderComponent,
     FilterComponent,
     ProductBoxComponent,

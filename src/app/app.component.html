@@ -21,14 +21,14 @@
         <a href="/admin" class="nav-link" routerLink="admin">Admin</a>
 
       </li> -->
-      <li class="nav-item" *ngIf="showRetailerBoard">
+      <li class="nav-item" *ngIf="showRetailerBoard && isLoggedIn">
         <a href="/profile" class="nav-link" routerLink="profile">Retailer</a>
 
       </li>
       <li class="nav-item" *ngIf="isLoggedIn">
         <button class="nav-link" routerLink="products">Shop Now</button>
       </li>
-      <li class="nav-item" *ngIf="showBuyerBoard">
+      <li class="nav-item" *ngIf="showBuyerBoard && isLoggedIn">
         <a href="/profile" class="nav-link" routerLink="profile">Customer</a>
       </li>
       <li class="nav-item" *ngIf="isLoggedIn">
