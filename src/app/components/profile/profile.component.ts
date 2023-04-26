@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit{
   newPassword: String =  "";
   confirmPassword: String = "";
 
-  error:String ="";
+  message:String ="";
 
 
   constructor(private storageService: StorageServiceService,
@@ -49,21 +49,25 @@ export class ProfileComponent implements OnInit{
     console.log(this.newPassword);
     console.log(this.confirmPassword);
 
-    console.log(this.currentUser);
     if(this.currentUser.password != this.currentPassword){
-      this.error = "Current password input is incorrect.";
+      this.message = "Current password input is incorrect.";
     }
     else if(this.currentPassword == this.newPassword){
-      this.error = "New password can't be the same as the current password";
+      this.message = "New password can't be the same as the current password";
     }
     else if(this.newPassword != this.confirmPassword){
-      this.error = "Password confirmation doesn't match new password";
+      this.message = "Password confirmation doesn't match new password";
     }
     else if(this.newPassword.length < 5){
-      this.error = "New pass must be at least 6 characters";
+      this.message = "New pass must be at least 6 characters";
      }
     else{
-      console.log("password can update")
+
+      this.currentUser.password = this.newPassword;
+      this.authService.changePassword(this.currentUser.id,this.currentUser).subscribe(data => {
+      console.log(this.currentUser);
+      });
+      this.message="Password updated successfully!";
     }
-   }
+  }
 }
