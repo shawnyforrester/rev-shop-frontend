@@ -11,27 +11,27 @@
       <li class="nav-item">
         <a href="/products" class="nav-link" routerLink="products">Products</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a href="/add" class="nav-link" routerLink="add">Add Inventory</a>
       </li>
       <li class="nav-item">
         <a href="/delete" class="nav-link" routerLink="delete">Delete</a>
-      </li>
-      <li class="nav-item" *ngIf="showAdminBoard">
+      </li> -->
+      <!-- <li class="nav-item" *ngIf="showAdminBoard">
         <a href="/admin" class="nav-link" routerLink="admin">Admin</a>
 
+      </li> -->
+      <li class="nav-item" *ngIf="showRetailerBoard && isLoggedIn">
+        <a href="/profile" class="nav-link" routerLink="profile">Retailer</a>
+
       </li>
-<!--      <li class="nav-item" *ngIf="showRetailerBoard">-->
-<!--        <a href="/retailer" class="nav-link" routerLink="retailer">Retailer</a>-->
-<!--        -->
-<!--      </li>-->
-      <li class = "nav-item" *ngIf = "isLoggedIn">
-        <button  class="nav-link" routerLink="products">Shop Now</button>
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <button class="nav-link" routerLink="products">Shop Now</button>
       </li>
-      <li class="nav-item" *ngIf = "showBuyerBoard && isLoggedIn">
+      <li class="nav-item" *ngIf="showBuyerBoard && isLoggedIn">
         <a href="/profile" class="nav-link" routerLink="profile">Customer</a>
       </li>
-      <li class = "nav-item" *ngIf = "isLoggedIn">
+      <li class="nav-item" *ngIf="isLoggedIn">
         <a href="/home" class="nav-link" routerLink="home" (click)="logout()">Logout</a>
       </li>
     </ul>
@@ -48,9 +48,8 @@
 
 
 
-    <button mat-icon-button [matMenuTriggerFor] ="menu">
-      <mat-icon [matBadge]="itemsQuantity"
-    matBadgeColor="warn" class="cart">shopping_cart</mat-icon>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon [matBadge]="itemsQuantity" matBadgeColor="warn" class="cart">shopping_cart</mat-icon>
     </button>
 
     <mat-menu #menu="matMenu">
@@ -61,10 +60,7 @@
         </div>
 
         <div *ngIf="cart.items.length" class="py-3">
-          <div
-            *ngFor="let item of cart.items"
-            class="flex justify-between font-light mb-2"
-          >
+          <div *ngFor="let item of cart.items" class="flex justify-between font-light mb-2">
             {{ item.type }} x {{ item.quantity }}
             <span class="font-bold not-italic">{{ item.price | currency }}</span>
           </div>
@@ -73,19 +69,13 @@
           Total:
           <span class="font-bold not-italic">{{
             getTotal(cart.items) | currency
-          }}</span>
+            }}</span>
         </div>
         <div class="pt-3 flex justify-between">
-          <button
-            (click)="onClearCart()"
-            class="bg-rose-600 text-white rounded-full w-9 h-9"
-          >
+          <button (click)="onClearCart()" class="bg-rose-600 text-white rounded-full w-9 h-9">
             <mat-icon>remove_shopping_cart</mat-icon>
           </button>
-          <button
-            routerLink="cart"
-            class="bg-green-600 text-white rounded-full w-9 h-9"
-          >
+          <button routerLink="cart" class="bg-green-600 text-white rounded-full w-9 h-9">
             <mat-icon>shopping_cart_checkout</mat-icon>
           </button>
         </div>
@@ -97,4 +87,3 @@
     <router-outlet></router-outlet>
   </div>
 </div>
-

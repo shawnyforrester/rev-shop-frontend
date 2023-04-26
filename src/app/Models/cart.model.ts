@@ -4,7 +4,7 @@ export interface Cart {
   
   export interface CartItem {
     type: string;
-    size: string;
+    //size: string;
     price: number;
     quantity: number;
     id: number;

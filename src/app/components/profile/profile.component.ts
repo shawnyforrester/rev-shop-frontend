@@ -18,6 +18,8 @@ export class ProfileComponent implements OnInit{
 
   message:String ="";
 
+  retailer: boolean = false;
+
 
   constructor(private storageService: StorageServiceService,
     private authService: AuthServiceService, private router: Router) { }
@@ -25,6 +27,10 @@ export class ProfileComponent implements OnInit{
   ngOnInit(): void {
 
     this.currentUser = this.storageService.getUser();
+    if(this.currentUser.role == "retailer"){
+      this.retailer = true;
+    }
+    
 
   }
 
@@ -67,5 +73,14 @@ export class ProfileComponent implements OnInit{
       });
       this.message="Password updated successfully!";
     }
+  }
+
+  deleteProduct():void{
+    this.router.navigateByUrl('delete');
+  }
+
+  addProduct():void{
+    this.router.navigateByUrl('add');
+
   }
 }

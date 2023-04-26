@@ -63,7 +63,7 @@ export class ProductsPageComponent {
 
   onAddToCart(product: Product): void {
     this.cartService.addToCart({
-      size: product.size,
+      //size: product.size,
       type: product.title,
       price: product.price,
       quantity: 1,

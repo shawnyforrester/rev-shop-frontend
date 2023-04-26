@@ -16,7 +16,7 @@ export class AddProductComponent {
     category: '',
     description_and_reviews: '',
     image: '',
-    size: ''
+    //size: ''
   };
 
   constructor(private storeService: StoreService, private snackBar: MatSnackBar) { }
@@ -34,7 +34,7 @@ export class AddProductComponent {
             category: '',
             description_and_reviews: '',
             image: '',
-            size: ''
+           // size: ''
           };
           
           this.snackBar.open('Product successfully added', 'Close', {

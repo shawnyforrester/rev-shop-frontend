@@ -30,7 +30,12 @@
   </form>
   <p class="message">{{message}}</p>
   </div>
+  <br>
 
+  <div *ngIf="retailer">
+    <button (click) = "addProduct()"> Add New Product</button> <br>
+    <button (click) = "deleteProduct()">Delete Product</button>
+  </div>
 
 
   <ng-template #loggedOut>
