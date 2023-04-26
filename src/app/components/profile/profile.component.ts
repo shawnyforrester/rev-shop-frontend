@@ -30,19 +30,17 @@ export class ProfileComponent implements OnInit{
 
   ngOnDestroy(): void {
 
-    this.authService.logout().subscribe({
-      next: res => {
+    this.authService.logout().subscribe( res => {
         console.log(res);
-        this.storageService.clean();
-        localStorage.clear();
-
-        this.router.navigate(['/home']);
-
-      },
-      error: err => {
-        console.log(err);
-      }
-    });
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          this.storageService.clean();
+          this.router.navigateByUrl('home')
+       }
+    );
   }
   passSubmit():void{
     console.log(this.currentPassword);

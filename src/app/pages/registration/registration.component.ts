@@ -36,6 +36,7 @@ export class RegistrationComponent implements OnInit {
     console.log(this.user);
     this.authService.register(this.user).subscribe(data => {
           console.log(data);
+          this.router.navigateByUrl('login')
     },
         error => {
           this.errorMessage = error.message;
@@ -44,7 +45,6 @@ export class RegistrationComponent implements OnInit {
         () => {
           this.isSuccessful = true;
           this.isSignUpFailed = false;
-          this.router.navigateByUrl('login')
         }
     );
   }

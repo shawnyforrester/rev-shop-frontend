@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
   private _cart: Cart = { items: [] };
   itemsQuantity = 0;
 
-  
+
 
   /**Input data received from from a parent component*/
   @Input()
@@ -42,7 +42,7 @@ export class AppComponent implements OnInit{
   showBuyerBoard = false;
   username?: string;
 
-  constructor(private storageService: StorageServiceService, 
+  constructor(private storageService: StorageServiceService,
     private router: Router, private authService: AuthServiceService,
     private cartService: CartServicesService) { }
 
@@ -50,7 +50,7 @@ export class AppComponent implements OnInit{
     this.isLoggedIn = this.storageService.isLoggedIn();
 
     if (this.isLoggedIn) {
-      const user = this.storageService.getUser();        
+      const user = this.storageService.getUser();
         this.roles.push(user.role);
       this.showAdminBoard = this.roles.includes('admin');
       this.showRetailerBoard = this.roles.includes('retailer');
@@ -67,29 +67,25 @@ export class AppComponent implements OnInit{
 
   logout(): void {
     this.isLoggedIn = false;
-    this.authService.logout().subscribe({
-      next: res => {
+    this.storageService.clean();
+    this.router.navigateByUrl('home');
+    this.authService.logout().subscribe(res => {
         console.log(res);
-        this.storageService.clean();        
-        localStorage.clear();     
-        this.reloadPage();
-        this.router.navigate(['/home']);
-        
-        
+        this.isLoggedIn = this.storageService.isLoggedIn();
       },
-      error: err => {
-        console.log(err);
+      error => {
+        console.log(error);
       }
-    });
+    );
   }
 
-  
+
   /** Gets the total number of items from the cart service*/
   getTotal(items: CartItem[]): number {
     return this.cartService.getTotal(items);
   }
 
-  
+
   /**clears the cart */
   onClearCart(): void {
     this.cartService.clearCart();

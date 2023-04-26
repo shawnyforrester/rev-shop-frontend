@@ -1,8 +1,8 @@
 <div id="app">
-  
+
   <nav class="navbar navbar-expand navbar-dark bg-dark">
     <a href="#" class="navbar-brand"></a>
-    
+
     <a routerLink="home" class="logo">RevBoys</a>
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
@@ -13,21 +13,21 @@
       </li>
       <li class="nav-item" *ngIf="showAdminBoard">
         <a href="/admin" class="nav-link" routerLink="admin">Admin</a>
-        
+
       </li>
-      <li class="nav-item" *ngIf="showRetailerBoard">
-        <a href="/retailer" class="nav-link" routerLink="retailer">Retailer</a>
-        
-      </li>
-      <li class = "nav-item" *ngIf = "isLoggedIn">        
+<!--      <li class="nav-item" *ngIf="showRetailerBoard">-->
+<!--        <a href="/retailer" class="nav-link" routerLink="retailer">Retailer</a>-->
+<!--        -->
+<!--      </li>-->
+      <li class = "nav-item" *ngIf = "isLoggedIn">
         <button  class="nav-link" routerLink="products">Shop Now</button>
       </li>
       <li class="nav-item" *ngIf = "showBuyerBoard && isLoggedIn">
-        <a href="/profile" class="nav-link" routerLink="profile">Customer</a>                
+        <a href="/profile" class="nav-link" routerLink="profile">Customer</a>
       </li>
-      <li class = "nav-item" *ngIf = "isLoggedIn">        
-        <button  class="nav-link" (click)="logout()">Logout</button>
-      </li>     
+      <li class = "nav-item" *ngIf = "isLoggedIn">
+        <a href="/home" class="nav-link" routerLink="home" (click)="logout()">Logout</a>
+      </li>
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
@@ -36,14 +36,14 @@
       </li>
       <li class="nav-item">
         <a href="/login" class="nav-link" routerLink="login">Login</a>
-        
+
       </li>
     </ul>
 
-  
+
 
     <button mat-icon-button [matMenuTriggerFor] ="menu">
-      <mat-icon [matBadge]="itemsQuantity" 
+      <mat-icon [matBadge]="itemsQuantity"
     matBadgeColor="warn" class="cart">shopping_cart</mat-icon>
     </button>
 
@@ -53,7 +53,7 @@
           <span class="mr-16">{{ itemsQuantity }} items</span>
           <a routerLink="cart">View Cart</a>
         </div>
-        
+
         <div *ngIf="cart.items.length" class="py-3">
           <div
             *ngFor="let item of cart.items"
@@ -84,7 +84,7 @@
           </button>
         </div>
       </div>
-    </mat-menu>  
+    </mat-menu>
   </nav>
 
   <div class="container">
