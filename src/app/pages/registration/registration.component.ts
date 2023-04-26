@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 import{ User} from '../../Models/user';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -26,26 +26,27 @@ export class RegistrationComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthServiceService) { }
+  constructor(private authService: AuthServiceService, private router: Router) { }
 
   ngOnInit(): void {
 
   }
 
   onSubmit(): void {
-   
-    this.authService.register(this.user).subscribe({
-        next: data => {
+    console.log(this.user);
+    this.authService.register(this.user).subscribe(data => {
           console.log(data);
+          this.router.navigateByUrl('login')
+    },
+        error => {
+          this.errorMessage = error.message;
+          this.isSignUpFailed = true;
+        },
+        () => {
           this.isSuccessful = true;
           this.isSignUpFailed = false;
-          window.location.href = "/login";
-        },
-        error: err => {
-          this.errorMessage = err.error.message;
-          this.isSignUpFailed = true;
         }
-      });
+    );
   }
 
 }

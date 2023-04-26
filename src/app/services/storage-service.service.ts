@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 
-/**StorageService manages user information (username, email, roles) inside Browser’s Session Storage. 
+/**StorageService manages user information (username, email, roles) inside Browser’s Session Storage.
  * For Logout, we will clear this Session Storage. */
 
 const USER_KEY = 'auth-user';
@@ -15,6 +15,7 @@ export class StorageServiceService {
 
   clean(): void {
     window.sessionStorage.removeItem(USER_KEY);
+    sessionStorage.clear();
   }
 
   public saveUser(user: any): void {
@@ -35,8 +36,10 @@ export class StorageServiceService {
     if (user) {
       return true;
     }
+    else{
+      return false;
+    }
 
-    return false;
   }
 }
 
