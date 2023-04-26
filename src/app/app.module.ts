@@ -11,6 +11,7 @@ import { ProductsPageComponent } from './pages/products-page/products-page.compo
 import { ProfileComponent } from './components/profile/profile.component';
 import { httpInterceptorProviders } from 'src/helpers/http.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatMenuModule} from '@angular/material/menu';
@@ -34,6 +35,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { AboutComponent } from './pages/about/about.component';
 import { DeleteComponent } from './components/delete/delete.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+
 
 //import { StripeModule } from "stripe-angular";
 
@@ -78,6 +80,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     MatBadgeModule,
     MatExpansionModule,
     MatSnackBarModule,
+    NoopAnimationsModule
     
   ],
   providers: [httpInterceptorProviders, CartServicesService, StoreService],

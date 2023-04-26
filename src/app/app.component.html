@@ -22,15 +22,15 @@
 
       </li> -->
       <li class="nav-item" *ngIf="showRetailerBoard && isLoggedIn">
-        <a href="/profile" class="nav-link" routerLink="profile">Retailer</a>
+        <a href="/profile" class="nav-link" routerLink="profile">Profile</a>
 
       </li>
-      <li class="nav-item" *ngIf="isLoggedIn">
+      <!-- <li class="nav-item" *ngIf="isLoggedIn">
         <button class="nav-link" routerLink="products">Shop Now</button>
-      </li>
-      <li class="nav-item" *ngIf="showBuyerBoard && isLoggedIn">
+      </li> -->
+      <!-- <li class="nav-item" *ngIf="showBuyerBoard && isLoggedIn">
         <a href="/profile" class="nav-link" routerLink="profile">Customer</a>
-      </li>
+      </li> -->
       <li class="nav-item" *ngIf="isLoggedIn">
         <a href="/home" class="nav-link" routerLink="home" (click)="logout()">Logout</a>
       </li>
