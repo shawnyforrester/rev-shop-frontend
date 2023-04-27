@@ -31,7 +31,7 @@ export class PaymentComponent implements OnInit {
 
   processPayment(token: any) {
     const amount = this.amount * 100;
-    return this.http.post('http://localhost:9000/payments/charge', { token: token.id, amount: amount }).subscribe(response => {
+    return this.http.post('http://ec2-35-84-46-133.us-west-2.compute.amazonaws.com:9000/payments/charge', { token: token.id, amount: amount }).subscribe(response => {
       console.log(response);
       alert('Payment has been successful!');
     }, error => {

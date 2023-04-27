@@ -4,7 +4,7 @@ import { Product } from '../Models/product.model';
 import { Injectable } from '@angular/core';
 
 
-const STORE_BASE_URL = 'https://localhost:9000';
+const STORE_BASE_URL = 'http://ec2-35-84-46-133.us-west-2.compute.amazonaws.com:9000';
 
 
 
@@ -24,9 +24,9 @@ export class StoreService {
 ): Observable<Array<Product>> {
   let headers: HttpHeaders = new HttpHeaders();
   headers = headers.append('accept', 'application/json');
-  headers = headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
+  headers = headers.append('Access-Control-Allow-Origin', 'http://ec2-35-84-46-133.us-west-2.compute.amazonaws.com:4200');
   return this.httpClient.get<Array<Product>>(
-    `http://localhost:9000/inventory${
+    `http://ec2-35-84-46-133.us-west-2.compute.amazonaws.com:9000/inventory${
       category ? '/category/' + category : ''
     }?sort=${sort}&limit=${limit}`, { headers: headers, withCredentials: true }
   );
@@ -37,9 +37,9 @@ export class StoreService {
   getAllCategories(): Observable<Array<string>> {
     let headers : HttpHeaders = new HttpHeaders();
     headers = headers.append("accept", "application/json");
-    headers = headers.append("Access-Control-Allow-Origin", 'http://localhost:4200');
+    headers = headers.append("Access-Control-Allow-Origin", 'http://ec2-35-84-46-133.us-west-2.compute.amazonaws.com:4200');
     return this.httpClient.get<Array<string>>(
-      `http://localhost:9000/inventory/categories`, {headers: headers, withCredentials: true}
+      `http://ec2-35-84-46-133.us-west-2.compute.amazonaws.com:9000/inventory/categories`, {headers: headers, withCredentials: true}
     );
   }
 
@@ -47,8 +47,8 @@ export class StoreService {
   let headers: HttpHeaders = new HttpHeaders();
   headers = headers.append('Content-Type', 'application/json');
   headers = headers.append('Accept', 'application/json');
-  headers = headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
-  return this.httpClient.post<Product>('http://localhost:9000/inventory', product, { headers: headers });
+  headers = headers.append('Access-Control-Allow-Origin', 'http://ec2-35-84-46-133.us-west-2.compute.amazonaws.com:4200');
+  return this.httpClient.post<Product>('http://ec2-35-84-46-133.us-west-2.compute.amazonaws.com:9000/inventory', product, { headers: headers });
 }
 
     deleteProductByTitle(title: string): Observable<any> {
@@ -59,7 +59,7 @@ export class StoreService {
     'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
   });
  const encodedTitle = encodeURIComponent(title);
- return this.httpClient.delete<Product>(`http://localhost:9000/inventory/${encodedTitle}`, { headers: headers, withCredentials: true });
+ return this.httpClient.delete<Product>(`http://ec2-35-84-46-133.us-west-2.compute.amazonaws.com:9000/inventory/${encodedTitle}`, { headers: headers, withCredentials: true });
 }
 
 

@@ -5,7 +5,7 @@ import { User } from '../Models/user';
 import { StorageServiceService } from 'src/app/services/storage-service.service';
 
 
-const AUTH_API = 'http://localhost:9000/';
+const AUTH_API = 'http://ec2-35-84-46-133.us-west-2.compute.amazonaws.com:9000/';
 
 
 @Injectable({

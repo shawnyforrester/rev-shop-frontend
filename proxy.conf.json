@@ -1,10 +1,10 @@
 {
   "/api": {
-    "target": "https://fakestoreapi.com",
-    "secure": true,
+    "target": "http://ec2-54-244-40-222.us-west-2.compute.amazonaws.com",
+    "secure": false,
     "changeOrigin": true,
     "pathRewrite": {
-      "^/api": ""
+      "^/api": "http://ec2-54-244-40-222.us-west-2.compute.amazonaws.com"
     }
   }
 }
