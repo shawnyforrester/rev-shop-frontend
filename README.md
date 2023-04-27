@@ -11,36 +11,36 @@ Sellers can add products and manage inventory.
 A working version of this has been deployed to an AWS cloud server.
 
 ## Core Functional Buyer Features:
-• View product details including image,price, description,rating,anduser review.
-•Browse products by category.
-•Add or remove products from the cartand provide quantity.
-•Checkout and enter shipping and billing information.
-•Get email with account detailes include a secure password.
-•Receive invoices for their order.
+• View product details including image,price, description,rating,anduser review.<br>
+•Browse products by category.<br>
+•Add or remove products from the cartand provide quantity.<br>
+•Checkout and enter shipping and billing information.<br>
+•Get email with account detailes include a secure password.<br>
+•Receive invoices for their order.<br>
 •Make payment using Stripe as a payment gateway.
 
 
 ## Core Functional Retailer Features:
-•Register as a seller with email, password, and business details.
-•Receive an email regarding registration status.
-•Manage inventory and product details.
-•Add new products with price and description.
-•Login as a buyer or selle rusing email and password.
-•Sign up as a user with email, password, and personaldetails.
-•Logout fromthe application.
+•Register as a seller with email, password, and business details.<br>
+•Receive an email regarding registration status.<br>
+•Manage inventory and product details.<br>
+•Add new products with price and description.<br>
+•Login as a buyer or selle rusing email and password.<br>
+•Sign up as a user with email, password, and personaldetails.<br>
+•Logout fromthe application.<br>
 •Reset the password and request for a forgotten password to the email.
 
 ## Non-functional Scope Features:
-•Responsive to all the devices
-•Supported by common browsers(Chrome, Edge, Firefox, Safari)
-•80% unit testing on API business logic (Service layer)
-•Scrum/Agile Development Strategy with Burndown charts
-•RESTful API implementation
+•Responsive to all the devices<br>
+•Supported by common browsers(Chrome, Edge, Firefox, Safari)<br>
+•80% unit testing on API business logic (Service layer)<br>
+•Scrum/Agile Development Strategy with Burndown charts<br>
+•RESTful API implementation<br>
 •API logging and exception handling•Comments in the code base with respective details.
 
 ## Definition of Done•Presentation of technical details of the application.
-•Sharing the associates’ code repo for technical evaluation with:
-oERD Diagram.oArchitecture Diagram.
-oActivity Diagram.ExpectationsSecurity Standards
-•Password Hashing implementation.
+•Sharing the associates’ code repo for technical evaluation with:<br>
+oERD Diagram.oArchitecture Diagram.<br>
+oActivity Diagram.ExpectationsSecurity Standards<br>
+•Password Hashing implementation.<br>
 •Session management.
