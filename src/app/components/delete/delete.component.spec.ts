@@ -1,13 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
 import { DeleteComponent } from './delete.component';
-
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { FormsModule } from '@angular/forms';
 describe('DeleteComponent', () => {
   let component: DeleteComponent;
   let fixture: ComponentFixture<DeleteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports:[
+        HttpClientModule,
+        MatSnackBarModule,
+        FormsModule
+      ],
       declarations: [ DeleteComponent ]
     })
     .compileComponents();
