@@ -9,6 +9,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { AboutComponent } from './pages/about/about.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { DeleteComponent } from './components/delete/delete.component';
+import { RouteGuardGuard } from './route-guard.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,12 +17,12 @@ const routes: Routes = [
   { path: 'products', component: ProductsPageComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent }, 
-  {path: 'profile', component: ProfileComponent},
+  {path: 'profile', component: ProfileComponent, canActivate: [RouteGuardGuard]},
   {path: 'cart', component: CartComponent},
   {path: 'products', component: ProductsPageComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'add', component: AddProductComponent},
-  {path: 'delete', component: DeleteComponent}
+  {path: 'add', component: AddProductComponent, canActivate: [RouteGuardGuard]},
+  {path: 'delete', component: DeleteComponent, canActivate: [RouteGuardGuard]}
 
 ];
 

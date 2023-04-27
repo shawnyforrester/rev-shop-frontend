@@ -35,9 +35,8 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { AboutComponent } from './pages/about/about.component';
 import { DeleteComponent } from './components/delete/delete.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { RouteGuardGuard } from './route-guard.guard';
 
-
-//import { StripeModule } from "stripe-angular";
 
 
 
@@ -83,7 +82,8 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     NoopAnimationsModule
     
   ],
-  providers: [httpInterceptorProviders, CartServicesService, StoreService],
+  providers: [httpInterceptorProviders, CartServicesService, 
+    StoreService, RouteGuardGuard],
   bootstrap: [AppComponent],
   
 })
